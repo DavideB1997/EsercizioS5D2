@@ -1,0 +1,62 @@
+﻿<h2>Scarpe in vendita</h2>
+
+@if(Model.Count == 0)
+{
+    <h3>Non ci sono scarpe in vendita :c</h3>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Descrizione</th>
+                <th scope="col">Prezzo</th>
+                <th scope="col">Immagine Scarpa</th>
+                <th scope="col">Immagine Aggiuntiva</th>
+                <th scope="col">Immagine Aggiuntiva</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var scarpa in Model)
+            {
+                <tr>
+                    <td scope="col">@scarpa.IdScarpa</td>
+                    <td scope="col">@scarpa.Nome</td>
+                    <td scope="col">@scarpa.Descrizione</td>
+                    <td scope="col">@scarpa.Prezzo</td>
+                    <td scope="col">@scarpa.ImgScarpa</td>
+                    <td scope="col">@scarpa.ImgAgg1</td>
+                    <td scope="col">@scarpa.ImgAgg2</td>
+                    <td scope="col">
+                        <a class="btn btn-primary" asp-controller="Scarpa" asp-action="Details" asp-route-id="@scarpa.IdScarpa">Dettagli</a>
+                        <a class="btn btn-primary" asp-controller="Scarpa" asp-action="Edit" asp-route-id="@scarpa.IdScarpa">Modifica</a>
+                        <form style=" display: inline" asp-controller="Scarpa" asp-action="SoftDelete" method="post">
+                            <input type="hidden" name="IdScarpa" value="@scarpa.IdScarpa" />
+                            <button type="submit" class="btn btn-danger">SoftDelete</button>
+                        </form>
+                        <a class="btn btn-danger" asp-controller="Scarpa" asp-action="Delete" asp-route-id="@scarpa.IdScarpa"/>
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-@scarpa.IdScarpa"> Delete Modale</button>
+                        <div class="modal fade" id="modal-@scarpa.IdScarpa" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Sei sicuro?</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                                        <form asp-controller="Scarpa" asp-action="Delete" method="post">
+                                            <input type="hidden" name="IdScarpa" value="@scarpa.IdScarpa" />
+                                            <button type="submit" class="btn btn-primary">Si elimina</button>
+                                        </form>
+                                    </div>
+                                </div>
+                         </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

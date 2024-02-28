@@ -1,0 +1,15 @@
+﻿@{
+    ViewData["Title"] = "Details page";
+}
+
+
+<div>
+    <ul>
+        <li>Name: @Model.Nome</li>
+        <li>Descrizione: @Model.Descrizione</li>
+        <li>Price: @(Model.Prezzo / 100)€</li>
+        <li>Immagine Scarpa: @Model.ImgScarpa</li>
+        <li>Immagine Aggiuntiva: @Model.ImgAgg1</li>
+        <li>Immagine Aggiuntiva: @Model.ImgAgg2</li>
+    </ul>
+</div>

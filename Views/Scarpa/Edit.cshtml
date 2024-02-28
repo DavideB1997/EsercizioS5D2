@@ -1,0 +1,25 @@
+﻿@model Scarpa
+
+<form asp-controller="Scarpa" asp-action="Edit" method="post">
+    <input type="hidden" asp-for="@Model.IdScarpa" /><br />
+
+    <label asp-for="@Model.Nome"></label>
+    <input type="text" asp-for="@Model.Nome" /><br />
+
+    <label asp-for="@Model.Descrizione"></label>
+    <input type="text" asp-for="@Model.Descrizione" /><br />
+
+    <label asp-for="@Model.Prezzo"></label>
+    <input type="number" asp-for="@Model.Prezzo" /><br />
+
+    <label asp-for="@Model.ImgScarpa"></label>
+    <input type="number" asp-for="@Model.ImgScarpa" /><br />
+
+    <label asp-for="@Model.ImgAgg1"></label>
+    <input type="number" asp-for="@Model.ImgAgg1" /><br />
+
+    <label asp-for="@Model.ImgAgg2"></label>
+    <input type="number" asp-for="@Model.ImgAgg2" /><br />
+
+    <button class="btn btn-primary">Salva</button>
+</form>

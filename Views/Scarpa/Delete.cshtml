@@ -1,0 +1,8 @@
+﻿@model Scarpa
+
+<h2>Sei sicuro di voler eliminare la scarpa @(Model.Nome)?</h2>
+
+<form asp-controller="Scarpa" asp-action="Delete" method="post">
+    <input type="hidden" asp-for="@Model.IdScarpa" />
+    <button>Elimina</button>
+</form>
